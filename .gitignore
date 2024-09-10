@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+db.sqlite3
+/media
+/static
+*.log
+
+# Google OAuth files
+credentials.json
+token.pickle
