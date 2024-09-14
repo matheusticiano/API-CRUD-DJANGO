@@ -12,11 +12,9 @@ class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        # Filtrar as tarefas para o usuário logado
         return Task.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Salvar a tarefa associada ao usuário logado
         serializer.save(user=self.request.user)
 
     def create(self, request, *args, **kwargs):
@@ -25,7 +23,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         self.perform_create(serializer)
         task = serializer.instance
 
-        # Integração com o Google Calendar (opcional)
         google_calendar_service = GoogleCalendarService()
         google_event_id = google_calendar_service.create_event(task)
         task.google_event_id = google_event_id
@@ -42,7 +39,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         self.perform_update(serializer)
         task = serializer.instance
 
-        # Atualizar evento no Google Calendar (opcional)
         google_calendar_service = GoogleCalendarService()
         google_calendar_service.update_event(task)
 
@@ -52,7 +48,6 @@ class TaskViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         task = self.get_object()
 
-        # Deletar o evento do Google Calendar (opcional)
         google_calendar_service = GoogleCalendarService()
         google_calendar_service.delete_event(task.google_event_id)
 
