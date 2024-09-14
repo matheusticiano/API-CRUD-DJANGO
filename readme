@@ -38,6 +38,8 @@ Certifique-se de ter o seguinte instalado antes de configurar o projeto:
 
 Para utilizar todas as funcoes da API corretamente lembre-se de estar Logado e Autenticado.
 
+Ao executar o a criacao de uma Task pela primeira vez , voce sera redirecionado para fazer o Login com sua conta do Google.
+
 
 https://documenter.getpostman.com/view/27491960/2sAXqp7iGg
 
