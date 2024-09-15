@@ -22,13 +22,21 @@ Certifique-se de ter o seguinte instalado antes de configurar o projeto:
    cd task_manager
    ```
 
-2. **Migrações do Banco de Dados**
+2. **Crie e ative o ambiente virtual:**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate   # No Windows: venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
+
+
+3. **Migrações do Banco de Dados**
    Execute as migrações do Django para configurar o banco de dados:
    ```bash
    python manage.py migrate
    ```
 
-3. **Executar o Servidor de Desenvolvimento**
+4. **Executar o Servidor de Desenvolvimento**
    ```bash
    python manage.py runserver
    ```
@@ -39,6 +47,8 @@ Certifique-se de ter o seguinte instalado antes de configurar o projeto:
 Para utilizar todas as funcoes da API corretamente lembre-se de estar Logado e Autenticado.
 
 Ao executar o a criacao de uma Task pela primeira vez , voce sera redirecionado para fazer o Login com sua conta do Google.
+
+Ao ser logado no google um arquivo sera criado na raiz do projeto com o nome token.pickle contendo suas informacoes de usuario para proximos usos ( apague-o e faca login novamente caso queria mudar a conta utilizada no seu google agendas).
 
 
 https://documenter.getpostman.com/view/27491960/2sAXqp7iGg
